@@ -1,0 +1,68 @@
+{
+	/* 拓展程序信息 */
+    "manifest_version": 2,
+    "name": "拓展程序名",
+    "version": "6.6.6",
+    "description": "__MSG_pluginDesc__",
+	"default_locale": "zh_CN",
+	"author": "someone",
+	/* 权限 */
+    "permissions": [
+        "nativeMessaging",
+		"cookies",
+        "contextMenus",
+        "tabs",
+        "notifications",
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "alarms",
+        "<all_urls>"
+    ],
+	/* 图标菜单&选项设置 */
+    "browser_action": {
+        "default_icon": "img/abc.png",
+        "default_title": "图标标题",
+        "default_popup": "/popup.html",
+        "badge": "这是badge"
+    },
+    "homepage_url": "https://myhomepage.com/",
+    "options_ui": {
+        "page": "/option.html",
+        "chrome_style": true
+    },
+    "icons": {
+        "48": "img/icon.png"
+    },
+	/* 全局资源 */
+    "web_accessible_resources": [
+        "/global.js",
+		"/img/icon.png"
+    ],
+	/* 常驻脚本 */
+    "background": {
+        "scripts": [
+			"/bg.js"
+        ]
+    },
+	/* 开发者工具脚本 */
+    "devtools_page": "dev.html",
+	/* 关键词注册 */
+    "omnibox": {
+        "keyword": "999"
+    },
+	/* 内容脚本  */
+    "content_scripts": [
+        {
+            "matches": [
+                "https://abc.com/nice/index.htm*"
+            ],
+            "all_frames": true,
+            "js": [
+                "/nice.js"
+            ],
+			"css": ["/nice.css"],
+            "run_at": "document_idle"
+        },
+    ]
+}
